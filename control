@@ -1,0 +1,9 @@
+Package: com.hackingdartmouth.oncemore
+Name: Once More
+Depends: mobilesubstrate
+Version: 1.0.0
+Architecture: iphoneos-arm
+Description: Adds a button to restart the timer.
+Maintainer: Alex Beals <Alex.Beals.18@dartmouth.edu>
+Author: Alex Beals <Alex.Beals.18@dartmouth.edu>
+Section: Tweaks

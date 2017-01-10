@@ -7,3 +7,5 @@ Description: Adds a button to restart the timer.
 Maintainer: Alex Beals <Alex.Beals.18@dartmouth.edu>
 Author: Alex Beals <Alex.Beals.18@dartmouth.edu>
 Section: Tweaks
+Icon: file:///Library/Application Support/OnceMore/icon@2x.png
+Depiction: http://cydia.alexbeals.com/OnceMore

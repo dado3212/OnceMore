@@ -1,10 +1,10 @@
-# OnceMore
+# OnceMore <img src="/layout/Library/Application Support/OnceMore/icon@2x.png?raw=true" height="40" alt=""/>
 
-OnceMore is a Cydia tweak that adds a restart button to the lock screen when a timer ends to restart the timer.
+OnceMore is a Cydia tweak that adds a restart button to the lock screen/alert when a timer ends to restart the timer.
 
 ### Installation
 
-To install it, either install from the .deb, or compile it yourself from the source.  Currently not on my repo because I've only tested it on my own device, and in a limited state.
+To install it, either install from the .deb, or add the repository http://cydia.alexbeals.com to Cydia and download OnceMore.
 
 ---
 

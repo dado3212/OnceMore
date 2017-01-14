@@ -40,5 +40,14 @@
 @interface SBUILockOverlayView : UIView
 @property (readwrite) BOOL buttonExists;
 @property (nonatomic,readonly) UIButton * actionButton;  
-- (void)_buttonPressed;
+-(void)_buttonPressed;
+-(id)delegate;
+@end
+
+@interface SBAwayBulletinListItem
+-(BBBulletin *)activeBulletin;
+@end
+
+@interface SBLockScreenFullscreenBulletinViewController
+@property (nonatomic,retain) SBAwayBulletinListItem * bulletinItem;
 @end

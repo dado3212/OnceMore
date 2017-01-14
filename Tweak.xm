@@ -85,7 +85,8 @@ static void restartTimer() {
 	%orig;
 	if (![self buttonExists]) {
 		UIButton *button = [self actionButton];
-		if (button != nil && [button.titleLabel.text isEqualToString:@"Tap to stop"]) { // It's the timer overlay
+		BBBulletin *bulletin = [[[self delegate] bulletinItem] activeBulletin];
+		if (button != nil && ([[bulletin section] isEqualToString:@"com.apple.mobiletimer"] && [bulletin sectionSubtype] == 2)) { // It's the timer overlay
 			// Copy the old button to match styling
 			NSData *archivedData = [NSKeyedArchiver archivedDataWithRootObject:button];
 			UIButton *buttonCopy = [NSKeyedUnarchiver unarchiveObjectWithData:archivedData];
@@ -104,10 +105,11 @@ static void restartTimer() {
 			[buttonCopy sizeToFit];
 			buttonCopy.frame = CGRectMake(
 				buttonCopy.frame.origin.x + button.frame.size.width / 2 - buttonCopy.frame.size.width / 2, 
-				buttonCopy.frame.origin.y + buttonCopy.frame.size.height / 2, 
+				button.frame.origin.y + button.frame.size.height, 
 				buttonCopy.frame.size.width, 
 				buttonCopy.frame.size.height
 			);
+
 			[[self subviews][0] addSubview:buttonCopy];
 			[self setButtonExists:true];
 		}

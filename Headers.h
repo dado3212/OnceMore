@@ -6,6 +6,16 @@
 -(void)scheduleAt:(double)arg1 withSound:(id)arg2;
 @end
 
+/*
+  _   ____    _____    ___  
+ (_) / __ \  / ____|  / _ \ 
+  _ | |  | || (___   | (_) |
+ | || |  | | \___ \   \__, |
+ | || |__| | ____) |    / / 
+ |_| \____/ |_____/    /_/  
+                            
+*/
+
 // Keep duration up to date
 @interface UIConcreteLocalNotification
 -(id)fireDate;
@@ -50,4 +60,44 @@
 
 @interface SBLockScreenFullscreenBulletinViewController
 @property (nonatomic,retain) SBAwayBulletinListItem * bulletinItem;
+@end
+
+/*
+  _   ____    _____   __   ___  
+ (_) / __ \  / ____| /_ | / _ \ 
+  _ | |  | || (___    | || | | |
+ | || |  | | \___ \   | || | | |
+ | || |__| | ____) |  | || |_| |
+ |_| \____/ |_____/   |_| \___/ 
+
+*/
+@interface NCNotificationRequest : NSObject
+@property (nonatomic,copy,readonly) NSString* sectionIdentifier;
+@end
+
+@interface SBDashBoardModalView : UIView
+-(void)setSecondaryActionButtonText:(NSString *)arg1;
+@end
+
+@interface UIInterfaceAction : NSObject
++(id)actionWithTitle:(id)arg1 type:(long long)arg2 handler:(/*^block*/id)arg3 ;
+-(id)handler;
+@end
+
+@interface _NCNotificationViewControllerView : UIView
+-(id)contentView;
+@end
+
+@interface NCNotificationLongLookView : UIView
+-(void)setInterfaceActions:(NSArray *)arg1;
+-(NSArray *)interfaceActions;
+@end
+
+@interface NCNotificationLongLookViewController : UIViewController
+@property (nonatomic,retain) NCNotificationRequest * notificationRequest;
+@end
+
+@interface SBDashBoardFullscreenNotificationViewController : UIViewController
+@property (nonatomic,readonly) NCNotificationRequest* notificationRequest;
+-(void)handlePrimaryActionForView:(id)arg1;
 @end

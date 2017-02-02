@@ -116,7 +116,8 @@ static void restartTimer() {
       %orig;
       if ([[[[self view] class] description] isEqualToString:@"_NCNotificationViewControllerView"]) {
         NCNotificationLongLookView *view = [(_NCNotificationViewControllerView *)[self view] contentView];
-        if ([[view interfaceActions] count] == 1 && [[[self notificationRequest] sectionIdentifier] isEqualToString:@"com.apple.mobiletimer"]) {
+        if ([[view interfaceActions] count] == 1 && [[[[self notificationRequest] bulletin] section] isEqualToString:@"com.apple.mobiletimer"] &&
+                                                     [[[self notificationRequest] bulletin] sectionSubtype] == 2) {
           UIInterfaceAction *actionCopy = [%c(UIInterfaceAction) actionWithTitle:@"Restart Timer" type:0 handler:^{
             [[[[view interfaceActions] objectAtIndex:0] handler] invoke];
             restartTimer();
@@ -133,14 +134,16 @@ static void restartTimer() {
   %hook SBDashBoardFullscreenNotificationViewController
     -(void)handleSecondaryActionForView:(id)arg1 {
       %orig;
-      if ([[[self notificationRequest] sectionIdentifier] isEqualToString:@"com.apple.mobiletimer"]) {
+      if ([[[[self notificationRequest] bulletin] section] isEqualToString:@"com.apple.mobiletimer"] &&
+          [[[self notificationRequest] bulletin] sectionSubtype] == 2) {
         [self handlePrimaryActionForView:arg1];
         restartTimer();
       }
     }
     -(void)loadView {
       %orig;
-      if ([[[self notificationRequest] sectionIdentifier] isEqualToString:@"com.apple.mobiletimer"]) {
+      if ([[[[self notificationRequest] bulletin] section] isEqualToString:@"com.apple.mobiletimer"] &&
+          [[[self notificationRequest] bulletin] sectionSubtype] == 2) {
         [(SBDashBoardModalView *)[self view] setSecondaryActionButtonText: @"Restart timer"];
       }
     }

@@ -73,6 +73,7 @@
 */
 @interface NCNotificationRequest : NSObject
 @property (nonatomic,copy,readonly) NSString* sectionIdentifier;
+@property (nonatomic,readonly) BBBulletin* bulletin;
 @end
 
 @interface SBDashBoardModalView : UIView
